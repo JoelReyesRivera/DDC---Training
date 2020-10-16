@@ -11,6 +11,20 @@ namespace Tarjetas.Models
 
     public class Institucion
     {
+        public Institucion(string nombre, string identificador, string usuario)
+        {
+            Nombre = nombre;
+            Identificador = identificador;
+            Usuario = usuario;
+            EsActivo = "0";
+            Fecha = DateTime.Now;
+        }
+
+        public Institucion()
+        {
+
+        }
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         [MaxLength(255)]
@@ -28,6 +42,5 @@ namespace Tarjetas.Models
         public String Usuario { get; set; } 
         [Column("FECHA")]
         public DateTime Fecha { get; set; }
-        public List<Institucion> institucions;
     }
 }
