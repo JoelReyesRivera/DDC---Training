@@ -7,20 +7,42 @@ using System.Web;
 
 namespace Tarjetas.Models
 {
+    [Table("TARJETA")]
+
     public class Tarjeta
         {
-            [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+        public Tarjeta(string numero, int institucion, string usuario)
+        {
+            Numero = numero;
+            this.Institucion = institucion;
+            Usuario = usuario;
+            EsActivo = "0";
+            Fecha = DateTime.Now;
+        }
+
+        public Tarjeta()
+        {
+
+        }
+
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int ID { get; set; }
             [MaxLength(255)]
             [Index(IsUnique = true)]
-            public String Nombre { get; set; }
-            public bool EsActivo { get; set; }
+            [Column("NUMERO")]
+            public String Numero { get; set; }
+            [Column("ES_ACTIVO")]
+            public string EsActivo { get; set; }
             [MaxLength(50)]
+            [Column("USUARIO")]
             public String Usuario { get; set; }
+            [Column("FECHA")]
             public DateTime Fecha { get; set; }
-            public Institucion InstitucionObjecto{ get; set; }
             [Required]
+            [Column("INSTITUCION")]
             public int Institucion { get; set; }
-
+            [NotMapped]
+            public Institucion institucionObject  { get; set; }
     }
 }

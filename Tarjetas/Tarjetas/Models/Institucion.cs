@@ -42,5 +42,7 @@ namespace Tarjetas.Models
         public String Usuario { get; set; } 
         [Column("FECHA")]
         public DateTime Fecha { get; set; }
+        [NotMapped]
+        public List<Tarjeta> tarjetas { get; set; }
     }
 }

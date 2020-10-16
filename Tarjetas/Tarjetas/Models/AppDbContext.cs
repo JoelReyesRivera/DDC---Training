@@ -19,7 +19,6 @@ namespace Tarjetas.Models
                System.Configuration.ConfigurationManager.ConnectionStrings["OracleDbContext"].ConnectionString)
                  ,true)
         {
-            //var conection = System.Configuration.ConfigurationManager.ConnectionStrings["OracleDbContext"].ConnectionString;
             Database.SetInitializer<AppDbContext>(null);
         }
 

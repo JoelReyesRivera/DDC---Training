@@ -1,0 +1,424 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+		
+<card class="card">
+	<nav class="navbar navbar-light bg-light navbar-expand-lg">
+  <h3>ADMIN</h3>		
+    <ul class="navbar-nav mr-0 ml-5">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Configuraciones
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#modalInstitucion" >Instituciones</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#modalTarjetas" >Tarjetas</a>
+        </div>
+      </li>
+    </ul>
+</nav>	
+</card>
+
+
+
+
+<!-- MODALES -->
+
+<!-- MODALES INSTITUCION -->
+
+<!-- MODAL BUSCAR INSTITUCION -->
+
+<div class="modal  fade" id="modalInstitucion" tabindex="-1" role="dialog" aria-labelledby="modalInstitucio" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Consultar Institución</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		  <div class="form-group">
+			<label for="institucion" class="d-block ">Institución</label>
+			<input type="text" id="txtInstitucion"  class="form-control d-inline" id="institucion" aria-describedby="Institución" placeholder="Ingrese Institución">
+		  <button type="submit" class="btn btn-primary ml-5" id="btnBuscar">Buscar</button>
+		  <button type="submit" class="btn btn-primary mt-3 d-block " id="btnRegistrar" data-toggle="modal" data-target="#modalRegistrarInstitucion">Registrar</button>
+
+		  </div>
+		  	<table class="table d-none" id="tablaInstitucion"> 
+			  <thead>
+				<tr>
+				  <th scope="col">ID</th>
+				  <th scope="col">NOMBRE</th>
+				  <th scope="col">IDENTIFICADOR</th>
+				  <th scope="col">ES ACTIVO</th>
+				  <th scope="col">USUARIO</th>
+				</tr>
+			  </thead>
+			  <tbody id ="tbodyInstituciones">
+			  <tr id= "trInstituciones">
+			  </tr>
+		</tbody>
+		</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL AGREGAR INSTITUCION -->
+
+<div class="modal  fade" id="modalRegistrarInstitucion" tabindex="-1" role="dialog" aria-labelledby="modalInstitucio" aria-hidden="true">
+<div class="modal-dialog  modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registrar Institución</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		  <div class="form-group">
+			<label for="txtNombre" class="d-block ">Nombre</label>
+			<input type="text" id="txtNombre"  class="form-control d-inline"  aria-describedby="Nombre" placeholder="Ingrese Nombre">
+			<label for="txtIdentificador" class="d-block mt-3">Identificador</label>
+			<input type="text" id="txtIdentificador"  class="form-control d-inline" aria-describedby="Identificador" placeholder="Ingrese identificador">
+			<button type="submit" class="btn btn-primary mt-4" id="btnAgregar">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- MODAL ELIMINAR INSTITUCION -->
+
+<div class="modal  fade" id="modalInstitucionBorrar" tabindex="-1" role="dialog" aria-labelledby="modalInstitucio" aria-hidden="true">
+<div class="modal-dialog  modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eliminarH5" >Eliminar Institución</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<button type="submit" class="btn btn-primary mt-4" id="btnEliminarModal">Eliminar</button>
+			<button type="submit" class="btn btn-primary mt-4 ml-3" id="btnCancelar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MODAL BUSCAR TARJETAS -->
+
+<div class="modal  fade" id="modalTarjetas" tabindex="-1" role="dialog" aria-labelledby="modalTarjeta" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Consultar Tarjeta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		  <div class="form-group">
+			<label for="tarjeta" class="d-block ">Institución</label>
+			<input type="text" id="txtTarjeta"  class="form-control d-inline" aria-describedby="Tarjeta" placeholder="Ingrese Tarjeta">
+		  <button type="submit" class="btn btn-primary ml-5" id="btnBuscarTarjeta">Buscar</button>
+		  <button type="submit" class="btn btn-primary mt-3 d-block " id="btnRegistrar" data-toggle="modal" data-target="#modalRegistrarTarjeta">Registrar</button>
+
+		  	<table class="table d-none" id="tablaTarjeta"> 
+			  <thead>
+				<tr>
+				  <th scope="col">ID</th>
+				  <th scope="col">NUMERO</th>
+				  <th scope="col">INSTITUCION</th>
+				  <th scope="col">ES ACTIVO</th>
+				  <th scope="col">USUARIO</th>
+				</tr>
+			  </thead>
+			  <tbody id ="tbodyTarjetas">
+			  <tr id= "trTarjetas">
+			  </tr>
+		</tbody>
+		</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL AGREGAR TARJETA -->
+
+<div class="modal  fade" id="modalRegistrarTarjeta" tabindex="-1" role="dialog" aria-labelledby="modalInstitucio" aria-hidden="true">
+<div class="modal-dialog  modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registrar Tarjeta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		  <div class="form-group">
+			<label for="txtNombre" class="d-block ">Numero</label>
+			<input type="text" id="txtNumero"  class="form-control d-inline"  aria-describedby="Nombre" placeholder="Ingrese Número">
+			<label for="txtIdentificador" class="d-block mt-3">Institución</label>
+			<input type="text" id="txtInstitucionAgregar"  class="form-control d-inline" aria-describedby="institucion" placeholder="Ingrese Institución">
+			<button type="submit" class="btn btn-primary mt-4" id="btnAgregarTarjeta">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MODAL ELIMINAR TARJETA -->
+
+<div class="modal  fade" id="modalTarjetaBorrar" tabindex="-1" role="dialog" aria-labelledby="modalTarjeta" aria-hidden="true">
+<div class="modal-dialog  modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eliminarTarjetaH5" >Eliminar Tarjeta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<button type="submit" class="btn btn-primary mt-4" id="btnEliminarModalTarjeta">Eliminar</button>
+			<button type="submit" class="btn btn-primary mt-4 ml-3" id="btnCancelar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+@section scripts {
+<script>
+	var id_global = 0;
+
+    $(function () {
+		document
+			.querySelector("#btnEliminarModalTarjeta")
+			.addEventListener("click", function () {
+				$.ajax({  
+					type: 'POST',  
+					url: '@Url.Action("DeleteTarjeta")',  
+					data: { id : id_global},  
+					success:  
+						function (res)  {
+							alert(res.resultMessage)
+							$('#modalTarjetaBorrar').modal('hide');
+							if(!$("#tablaTarjeta").hasClass("d-none")){
+								$("#tablaTarjeta").addClass("d-none")
+							}
+							return
+						},  
+					error:  
+						function (res)  
+						{  
+							alert(JSON.stringify(res))
+							$('#modalTarjetaBorrar').modal('hide');
+						}  
+				}); 
+			});
+
+			document.querySelector("#btnEliminarModal").addEventListener("click", function () {
+				$.ajax(  
+			{  
+				type: 'POST',  
+				url: '@Url.Action("DeleteInstitucion")',  
+				data: { id : id_global},  
+				success:  
+					function (res)  {
+						alert(res.resultMessage)
+						$('#modalInstitucionBorrar').modal('hide');
+						if(!$("#tablaInstitucion").hasClass("d-none")){
+							$("#tablaInstitucion").addClass("d-none")
+						}
+						return
+					},  
+				error:  
+					function (res)  
+					{  
+						alert(JSON.stringify(res))
+						$('#modalInstitucionBorrar').modal('hide');
+					}  
+			}); 
+        });
+
+
+        document.querySelector("#btnBuscar").addEventListener("click", function () {
+		var institucion = $("#txtInstitucion").val()
+		if(institucion == ""){
+			alert("CAMPO VACÍO")
+			return
+		}
+		    $.ajax(  
+        {  
+            type: 'POST',  
+            url: '@Url.Action("GetInstitution")',  
+            data: { institucion : institucion},  
+            success:  
+                function (res)  
+                {  
+					if(res.length == 0){
+						alert("NO SE ENCONTRO INSTITUCION")
+						if(!$("#tablaInstitucion").hasClass("d-none")){
+							$("#tablaInstitucion").addClass("d-none")
+						}
+						return
+					}
+					var tbody = $("#tablaInstitucion tbody")
+					tbody.empty()
+					var cadena = '<tr>'
+					for(var i=0; i < res.length; i++){
+						cadena += '<th id="thId" scope="row">' + res[i].ID + '</th>'
+						cadena += '<td id="tdNombre">' + res[i].Nombre + '</td>'
+						cadena += '<td >' + res[i].Identificador + '</td>'
+						cadena += '<td>' + res[i].EsActivo + '</td>' 
+						cadena += '<td>' + res[i].Usuario 
+						cadena+='<button type="button" id="btnModificar"  class="btn btn-outline-secondary waves-effect px-3 ml-4">Editar</button> <button type="button" data-toggle="modal" data-target="#modalInstitucionBorrar"   class="btn btn-outline-secondary waves-effect px-3 ml-4"  id="btnEliminar">Eliminar</button</td>'
+					}
+					cadena += '</tr>'
+					tbody.append(cadena)
+
+					$("#tablaInstitucion").removeClass("d-none")
+                },  
+            error:  
+                function (res)  
+                {  
+                    alert("Error: " + res);  
+                }  
+        }); 
+
+        });
+
+		document.querySelector("#btnAgregar").addEventListener("click", function () {
+		var nombre = $("#txtNombre").val()
+		var identificador = $("#txtIdentificador").val()
+		if(nombre == "" || identificador == "" ){
+			alert("CAMPO VACÍO")
+			$('#modalRegistrarInstitucion').modal('hide');
+			return	
+		}
+		    $.ajax(  
+        {  
+            type: 'POST',  
+            url: '@Url.Action("AddInstitution")',  
+            data: { nombre : nombre, identificador: identificador, usuario : "jreyes"},  
+            success:  
+                function (res)  {
+					alert(res.resultMessage)
+					$("#txtIdentificador").val("")
+					$("#txtNombre").val("")
+					$('#modalRegistrarInstitucion').modal('hide');
+					return
+                },  
+            error:  
+                function (res)  
+                {  
+                    alert(JSON.stringify(res))
+					$('#modalRegistrarInstitucion').modal('hide');
+
+                }  
+        }); 
+        });
+    });
+
+	document.querySelector("#btnBuscarTarjeta").addEventListener("click", function () {
+		var tarjeta = $("#txtTarjeta").val()
+		if(tarjeta == ""){
+			alert("CAMPO VACÍO")
+			return
+		}
+		    $.ajax(  
+        {  
+            type: 'POST',  
+            url: '@Url.Action("GetTarjeta")',  
+            data: { numero : tarjeta},  
+            success:  
+                function (res)  
+                {  
+					if(res.length == 0){
+						alert("NO SE ENCONTRO TARJETA")
+						if(!$("#tablaTarjeta").hasClass("d-none")){
+							$("#tablaTarjeta").addClass("d-none")
+						}
+						return
+					}
+					var tbody = $("#tablaTarjeta tbody")
+					tbody.empty()
+					var cadena = '<tr>'
+					for(var i=0; i < res.length; i++){
+						cadena += '<th id= "thidTarjeta" scope="row">' + res[i].ID + '</th>'
+						cadena += '<td id= "tdNumero">' + res[i].Numero + '</td>'
+						cadena += '<td>' + res[i].Institucion + '</td>'
+						cadena += '<td>' + res[i].EsActivo + '</td>' 
+						cadena += '<td>' + res[i].Usuario 
+						cadena+='<button type="button" id="btnModificarTarjeta" class="btn btn-outline-secondary waves-effect px-3 ml-4">Editar</button> <button type="button" class="btn btn-outline-secondary waves-effect px-3 ml-4" data-toggle="modal" data-target="#modalTarjetaBorrar"  id="btnEliminarTarjeta">Eliminar</button</td>'
+					}
+					cadena += '</tr>'
+					tbody.append(cadena)
+
+					$("#tablaTarjeta").removeClass("d-none")
+                },  
+            error:  
+                function (res)  
+                {  
+                    alert("Error: " + res);  
+                }  
+        }); 
+        });
+		
+		document.querySelector("#btnAgregarTarjeta").addEventListener("click", function () {
+		var numero = $("#txtNumero").val()
+		var institucion = $("#txtInstitucionAgregar").val()
+		if(numero == "" || institucion == "" ){
+			alert("CAMPO VACÍO")
+			$('#modalRegistrarTarjeta').modal('hide');
+			return	
+		}
+		    $.ajax(  
+        {  
+            type: 'POST',  
+            url: '@Url.Action("AddTarjeta")',  
+            data: { numero : numero, institucion: institucion, usuario : "jreyes"},  
+            success:  
+                function (res)  {
+					alert(res.resultMessage)
+					$("#txtNumero").val("")
+					$("#txtInstitucionAgregar").val("")
+					$('#modalRegistrarTarjeta').modal('hide');
+					return
+                },  
+            error:  
+                function (res)  
+                {  
+                    alert(JSON.stringify(res))
+					$('#modalRegistrarTarjeta').modal('hide');
+
+                }  
+        }); 
+        });
+
+			$("#modalInstitucionBorrar").on('shown.bs.modal', function(){
+			var h5 = $("#eliminarH5")
+			id_global = $("#thId").text()
+			h5.text("ELIMINAR INSTITUCION")
+			var h5Text = h5.text()
+			var td = $("#tdNombre")
+			var nombre = td.text()
+			h5.text(h5Text + '\n' + nombre)
+        });
+
+		$("#modalTarjetaBorrar").on('shown.bs.modal', function(){
+			var h5 = $("#eliminarTarjetaH5")
+			id_global = $("#thidTarjeta").text()
+			h5.text("ELIMINAR TARJETA")
+			var h5Text = h5.text()
+			var td = $("#tdNumero")
+			var nombre = td.text()
+			h5.text(h5Text + '\n' + nombre);
+        });
+</script>
+    }
