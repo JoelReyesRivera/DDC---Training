@@ -16,9 +16,10 @@ namespace Tarjetas.Models
 
         public AppDbContext()
             :base (new OracleConnection (
-                "User Id = TARJETA; Password=12345;Data Source = (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl.neoris.cxnetworks.net)))")
+               System.Configuration.ConfigurationManager.ConnectionStrings["OracleDbContext"].ConnectionString)
                  ,true)
         {
+            //var conection = System.Configuration.ConfigurationManager.ConnectionStrings["OracleDbContext"].ConnectionString;
             Database.SetInitializer<AppDbContext>(null);
         }
 
